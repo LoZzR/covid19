@@ -89,12 +89,15 @@ export class AuthService {
 
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!, Please contact your administration service.';
-    if (!errorRes.error || !errorRes.error.error) {
+    if (!errorRes.error) {
       return throwError(errorMessage);
     }
-    switch (errorRes.error.error.message) {
+    switch (errorRes.error.message) {
+      case 'USERNAME_EXISTS':
+        errorMessage = 'This username already exists';
+        break;
       case 'EMAIL_EXISTS':
-        errorMessage = 'This email exists already';
+        errorMessage = 'This email already exists';
         break;
       case 'EMAIL_NOT_FOUND':
         errorMessage = 'This email does not exist.';
