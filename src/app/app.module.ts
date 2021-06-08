@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from './auth/services/auth.interceptor.service';
+import {TableModule} from 'primeng/table';
 
+
+import { AuthInterceptorService } from './auth/services/auth.interceptor.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
-import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { SejoursListComponent } from './sejours/sejours-list/sejours-list.component';
+import { SejoursTableComponent } from './sejours/sejours-list/sejours-table/sejours-table.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,15 @@ import { SejoursListComponent } from './sejours/sejours-list/sejours-list.compon
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SejoursListComponent
+    SejoursListComponent,
+    SejoursTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TableModule
   ],
   providers: [
     {
