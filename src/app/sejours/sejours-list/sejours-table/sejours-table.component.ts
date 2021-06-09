@@ -15,7 +15,11 @@ export class SejoursTableComponent implements OnInit {
   constructor(private sejourService: SejourService) { }
 
   ngOnInit(): void {
-    this.sejours = this.sejourService.getSejours();
+   this.sejourService.getSejours().subscribe(
+     (sejours) => {
+       this.sejours = sejours;
+     }
+   );
 
     this.cols = [
       { field: 'idSejour', header: 'Identifier' },

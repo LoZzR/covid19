@@ -1,4 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { AppConfig } from "../app.config";
 import { Sejour } from "./sejour.model";
 
 @Injectable({
@@ -6,17 +8,16 @@ import { Sejour } from "./sejour.model";
 })
 export class SejourService {
 
+  private static API_ENDPOINT_SHOPS = AppConfig.API_ENDPOINT + 'hopitals/sejours';
+
   private sejours: Sejour[] = [];
 
+  constructor(private http: HttpClient) { }
+
   getSejours(){
-    this.sejours.push(new Sejour(11111, "Zakariae", "EL HICHEM", "Y418055", "CHEIKH ZAID", 285,
-    "17/08/2020", "15/09/2020"));
-    this.sejours.push(new Sejour(22222, "Adnan", "Zinaoui", "Y418055", "CHEIKH ZAID", 285,
-    "17/08/2020", "15/09/2020"));
-    this.sejours.push(new Sejour(33333, "Oussama", "BIG DOG", "Y418055", "CHEIKH ZAID", 285,
-    "17/08/2020", "15/09/2020"));
-    this.sejours.push(new Sejour(11111, "Youssef", "Little Dog", "Y418055", "CHEIKH ZAID", 285,
-    "17/08/2020", "15/09/2020"));
-    return this.sejours;
+    return this.http
+      .get<Sejour[]>(
+        SejourService.API_ENDPOINT_SHOPS
+      );
   }
 }
