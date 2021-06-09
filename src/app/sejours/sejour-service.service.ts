@@ -6,7 +6,7 @@ import { Sejour } from "./sejour.model";
 })
 export class SejourService {
 
-  private sejours: Sejour[];
+  private sejours: Sejour[] = [];
 
   getSejours(){
     this.sejours.push(new Sejour(11111, "Zakariae", "EL HICHEM", "Y418055", "CHEIKH ZAID", 285,
