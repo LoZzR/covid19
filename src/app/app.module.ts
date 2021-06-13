@@ -14,6 +14,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SejoursListComponent } from './sejours/sejours-list/sejours-list.component';
 import { SejoursTableComponent } from './sejours/sejours-list/sejours-table/sejours-table.component';
+import { EditPatientComponent } from './patients/patient/edit-patient/edit-patient.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SejoursTableComponent } from './sejours/sejours-list/sejours-table/sejo
     LoginComponent,
     RegisterComponent,
     SejoursListComponent,
-    SejoursTableComponent
+    SejoursTableComponent,
+    EditPatientComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-6">
+      <div>
+        <div>
+          <img
+          id="profile-img"
+          src="/assets/images/patient-icon.png"
+          class="img-fluid rounded mx-auto d-block"
+         />
+        </div>
+        <form
+          name="form"
+          (ngSubmit)="f.form.valid"
+          #f="ngForm"
+          novalidate
+        >
+          <div class="col-md-12">
+            <label for="firstName">FirstName</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              [(ngModel)]="form.firstName"
+              required
+              minlength="3"
+              maxlength="20"
+              #firstName="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && firstName.invalid">
+              <div *ngIf="firstName.errors.required">firstName is required</div>
+              <div *ngIf="firstName.errors.minlength">
+                firstName must be at least 3 characters
+              </div>
+              <div *ngIf="firstName.errors.maxlength">
+                firstName must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="lastName">LastName</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              [(ngModel)]="form.lastName"
+              required
+              minlength="3"
+              maxlength="20"
+              #lastName="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && lastName.invalid">
+              <div *ngIf="lastName.errors.required">lastName is required</div>
+              <div *ngIf="lastName.errors.minlength">
+                lastName must be at least 3 characters
+              </div>
+              <div *ngIf="lastName.errors.maxlength">
+                lastName must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="cin">CIN</label>
+            <input
+              type="text"
+              class="form-control"
+              name="cin"
+              [(ngModel)]="form.cin"
+              required
+              #cin="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && cin.invalid">
+              <div *ngIf="cin.errors.required">CIN is required</div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="birthday">Birthday</label>
+            <input
+              type="date"
+              class="form-control"
+              name="birthday"
+              [(ngModel)]="form.birthday"
+              required
+              #birthday="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && birthday.invalid">
+              <div *ngIf="birthday.errors.required">Birthday is required</div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="sex">Sex</label>
+            <input
+              type="text"
+              class="form-control"
+              name="sex"
+              [(ngModel)]="form.sex"
+              required
+              #sex="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && sex.invalid">
+              <div *ngIf="sex.errors.required">Sex is required</div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="adresse">Adresse</label>
+            <input
+              type="text"
+              class="form-control"
+              name="adresse"
+              [(ngModel)]="form.adresse"
+              required
+              #adresse="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && adresse.invalid">
+              <div *ngIf="adresse.errors.required">Adresse is required</div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="phone">Phone number</label>
+            <input
+              type="text"
+              class="form-control"
+              name="phone"
+              [(ngModel)]="form.phone"
+              required
+              #phone="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && phone.invalid">
+              <div *ngIf="phone.errors.required">Phone number is required</div>
+            </div>
+          </div>
+          <br/>
+          <div class="col-md-6 text-center">
+            <button class="btn btn-primary btn-block" [disabled]="!f.form.valid">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
