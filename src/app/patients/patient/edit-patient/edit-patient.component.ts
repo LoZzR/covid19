@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Patient } from '../../patient.model';
+
+import { PatientService } from '../../patient.service';
 
 @Component({
   selector: 'app-edit-patient',
@@ -7,25 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPatientComponent implements OnInit {
 
-  form: any = {};
+  @ViewChild('f', { static: false }) patientForm: NgForm;
 
-  constructor() { }
+  constructor(private patientService: PatientService) { }
   ngOnInit() {
   }
 
-  onSubmit() {
-    /*this.authService.register(this.form).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      err => {
-        if(err.error !== undefined && err.error.message !== undefined) this.errorMessage = err.error.message;
-        else this.errorMessage = err;
-        this.isSignUpFailed = true;
-      }
-    );*/
+  onSubmit(f) {
+    const value = f.value;
+    const patient = new Patient(value.lastName, value.firstName, value.cin, value.birthday, value.sex, value.phone, value.adresse);
+    this.patientService.addShop(patient);
   }
 
 }

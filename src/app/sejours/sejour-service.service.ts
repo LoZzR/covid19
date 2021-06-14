@@ -8,7 +8,7 @@ import { Sejour } from "./sejour.model";
 })
 export class SejourService {
 
-  private static API_ENDPOINT_SHOPS = AppConfig.API_ENDPOINT + 'hopitals/sejours';
+  private static API_ENDPOINT_HOPITALS = AppConfig.API_ENDPOINT + 'hopitals/sejours';
 
   private sejours: Sejour[] = [];
 
@@ -17,7 +17,7 @@ export class SejourService {
   getSejours(){
     return this.http
       .get<Sejour[]>(
-        SejourService.API_ENDPOINT_SHOPS
+        SejourService.API_ENDPOINT_HOPITALS
       );
   }
 }

@@ -11,7 +11,7 @@
         </div>
         <form
           name="form"
-          (ngSubmit)="f.form.valid"
+          (ngSubmit)="onSubmit(f)"
           #f="ngForm"
           novalidate
         >
@@ -21,7 +21,7 @@
               type="text"
               class="form-control"
               name="firstName"
-              [(ngModel)]="form.firstName"
+              [(ngModel)]="f.firstName"
               required
               minlength="3"
               maxlength="20"
@@ -43,7 +43,7 @@
               type="text"
               class="form-control"
               name="lastName"
-              [(ngModel)]="form.lastName"
+              [(ngModel)]="f.lastName"
               required
               minlength="3"
               maxlength="20"
@@ -65,7 +65,7 @@
               type="text"
               class="form-control"
               name="cin"
-              [(ngModel)]="form.cin"
+              [(ngModel)]="f.cin"
               required
               #cin="ngModel"
             />
@@ -79,7 +79,7 @@
               type="date"
               class="form-control"
               name="birthday"
-              [(ngModel)]="form.birthday"
+              [(ngModel)]="f.birthday"
               required
               #birthday="ngModel"
             />
@@ -93,7 +93,7 @@
               type="text"
               class="form-control"
               name="sex"
-              [(ngModel)]="form.sex"
+              [(ngModel)]="f.sex"
               required
               #sex="ngModel"
             />
@@ -107,7 +107,7 @@
               type="text"
               class="form-control"
               name="adresse"
-              [(ngModel)]="form.adresse"
+              [(ngModel)]="f.adresse"
               required
               #adresse="ngModel"
             />
@@ -121,7 +121,7 @@
               type="text"
               class="form-control"
               name="phone"
-              [(ngModel)]="form.phone"
+              [(ngModel)]="f.phone"
               required
               #phone="ngModel"
             />
@@ -131,7 +131,7 @@
           </div>
           <br/>
           <div class="col-md-6 text-center">
-            <button class="btn btn-primary btn-block" [disabled]="!f.form.valid">Add</button>
+            <button class="btn btn-primary btn-block" [disabled]="!f.valid">Add</button>
           </div>
         </form>
       </div>
