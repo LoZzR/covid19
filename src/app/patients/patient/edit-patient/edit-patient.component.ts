@@ -20,7 +20,7 @@ export class EditPatientComponent implements OnInit {
   onSubmit(f) {
     const value = f.value;
     const patient = new Patient(value.lastName, value.firstName, value.cin, value.birthday, value.sex, value.phone, value.adresse);
-    this.patientService.addShop(patient);
+    this.patientService.addPatient(patient);
   }
 
 }

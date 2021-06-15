@@ -13,9 +13,7 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  addShop(patient: Patient){
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const options = { headers: headers };
-    return this.http.post<Patient>(PatientService.API_ENDPOINT_PATIENTS,Patient, options).subscribe();
+  addPatient(patient: Patient){
+    return this.http.post<Patient>(PatientService.API_ENDPOINT_PATIENTS,patient).subscribe();
   }
 }
