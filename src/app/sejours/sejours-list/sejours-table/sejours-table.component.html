@@ -1,5 +1,13 @@
 <div class="card">
-  <p-table [columns]="cols" [value]="sejours" [paginator]="true" [rows]="10">
+  <p-table  #dt [columns]="cols" [value]="sejours" [paginator]="true" [rows]="10" [globalFilterFields]="['cin']">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+            </span>
+        </div>
+        </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns" [pSortableColumn]="col.field" >
